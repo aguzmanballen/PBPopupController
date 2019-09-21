@@ -223,10 +223,7 @@ class FirstTableViewController: UITableViewController, PBPopupControllerDelegate
             
             self.configureBarButtonItems()
 
-            if #available(iOS 13.0, *) {
-                let interaction = UIContextMenuInteraction(delegate: self)
-                popupBar.addInteraction(interaction)
-            }
+          
             //popupBar.semanticContentAttribute = .forceRightToLeft
             //popupBar.barButtonItemsSemanticContentAttribute = .forceRightToLeft
             
@@ -1017,31 +1014,4 @@ extension FirstTableViewController: PBPopupBarPreviewingDelegate, UIPopoverPrese
         }
         return true
     }
-}
-
-@available(iOS 13.0, *)
-extension FirstTableViewController: UIContextMenuInteractionDelegate {
-    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
-        
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: nil)
-    }
-    
-    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willEndFor configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
-        animator?.addCompletion {
-            let avc = UIActivityViewController(activityItems: [URL(string: "https://github.com/iDevelopper/PBPopupController")!], applicationActivities: nil)
-            avc.modalPresentationStyle = .formSheet
-            avc.popoverPresentationController?.sourceView = self.containerVC.popupBar
-            self.present(avc, animated: true, completion: nil)
-        }
-    }
-    // TODO
-    /*
-    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        //
-    }
-    
-    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-        //
-    }
-    */
 }

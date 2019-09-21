@@ -154,8 +154,8 @@ internal class PBPopupInteractivePresentationController: UIPercentDrivenInteract
                     // finish()
                     UIView.animate(withDuration: TimeInterval(duration - (duration * percentComplete)), delay: 0.0, options: .curveLinear, animations: {
                         vc.popupContentView.popupCloseButton?.alpha = 1.0
-                        self.presentationController?.animateImageViewInFinalPosition()
-                        self.presentationController?.animateBottomModuleInFinalPosition()
+                        //self.presentationController?.animateImageViewInFinalPosition()
+                        //self.presentationController?.animateBottomModuleInFinalPosition()
                         vc._animateBottomBarToHidden(true)
                     }) { (_) in
                         //
@@ -171,8 +171,8 @@ internal class PBPopupInteractivePresentationController: UIPercentDrivenInteract
                     UIView.animate(withDuration: TimeInterval((duration - (duration * percentComplete)) / completionSpeed), delay: 0.0, options: [.curveLinear], animations: {
                         vc.popupContentView.popupCloseButton?.alpha = 0.0
                         self.presentationController?.popupBarForPresentation?.alpha = 1.0
-                        self.presentationController?.animateImageViewInFinalPosition()
-                        self.presentationController?.animateBottomModuleInFinalPosition()
+                        //self.presentationController?.animateImageViewInFinalPosition()
+                        //self.presentationController?.animateBottomModuleInFinalPosition()
                         vc._animateBottomBarToHidden(false)
                         
                         self.presentationController?.containerView?.layoutIfNeeded()
